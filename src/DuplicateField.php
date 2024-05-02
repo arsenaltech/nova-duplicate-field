@@ -72,4 +72,9 @@ class DuplicateField extends Field
     {
         return $this->withMeta(['relations_override' => $override]);
     }
+
+    public function toolTipTitle($toolTipTitle)
+    {
+        return $this->withMeta(['toolTipTitle' => $toolTipTitle]);
+    }
 }

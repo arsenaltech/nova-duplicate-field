@@ -2,8 +2,8 @@
   <a
     href
     @click.prevent="onClick"
-    class="cursor-pointer text-70 hover:text-primary no-underline flex items-center"
-  >
+    class="cursor-pointer text-70 hover:text-primary-500 no-underline flex items-center v-popper--has-tooltip" 
+    :title="toolTipTitle ? toolTipTitle : '' ">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
@@ -25,6 +25,12 @@ import axios from "axios";
 
 export default {
   props: ["resourceName", "field"],
+
+  data () {
+    return {
+        toolTipTitle : null,
+    };
+  },
 
   methods: {
     onClick() {
@@ -50,6 +56,7 @@ export default {
   },
 
   mounted() {
+    this.toolTipTitle = this.field.toolTipTitle || null;
     let parentElement = this.$el.parentElement;
     parentElement.classList.add("td-fit");
     parentElement.style.paddingRight = "0px";
