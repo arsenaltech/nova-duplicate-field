@@ -1,3 +1,4 @@
-Nova.booting((Vue, router) => {
-    Vue.component('index-duplicate-field', require('./components/IndexField'));
+import IndexField from './components/IndexField.vue';
+Nova.booting((app, store) => {
+    app.component('index-duplicate-field', IndexField);
 })
